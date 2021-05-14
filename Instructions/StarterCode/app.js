@@ -143,10 +143,15 @@ function plotData(name)
 
         Plotly.newPlot("bubble", data2, layout);
 
-        var chart = {
-          
+        var wfreq = sampleData.metadata.filter(f => f.id.toString() === name)[0];
+        wfreq = wfreq.wfreq;
+        console.log("Washing Freq: " + wfreq);
+
+        var chart = [
+            {
             domain: { x: [0, 1], y: [0, 1] },
             value: wfreq,
+            title: {text: `Belly Button Washing Frequency`},
             type: "indicator",
             
             mode: "gauge+number",
@@ -163,54 +168,52 @@ function plotData(name)
                       {range: [8, 9], color: "white"}
                     ]}
                 
-        };
+            }
+          ];
        
 
-
+        var  layout2 = {
+            margin: { t: 20, b: 40, l:100, r:100 },
+            'xaxis': {
+                'showticklabels': False,
+                'showgrid': False,
+                'zeroline': False,
+            },
+            'yaxis': {
+                'showticklabels': False,
+                'showgrid': False,
+                'zeroline': False,
+            },
+            'shapes': [
+                {
+                    'type': 'path',
+                    'path': 'M 0.235 0.5 L 0.24 0.65 L 0.245 0.5 Z',
+                    'fillcolor': 'rgba(44, 160, 101, 0.5)',
+                    'line': {
+                        'width': 0.5
+                    },
+                    'xref': 'paper',
+                    'yref': 'paper'
+                }
+            ],
+            'annotations': [
+                {
+                    'xref': 'paper',
+                    'yref': 'paper',
+                    'x': 0.23,
+                    'y': 0.45,
+                    'text': '50',
+                    'showarrow': False
+                }
+            ]
+        }
         var layout_chart = { 
              
               margin: { t: 20, b: 40, l:100, r:100 } 
             };
 
-            Plotly.newPlot("gauge", data_g, layout_g);
-
-        //var samplevalues = sampleInfo.sample_values.slice(0, 10).reverse();
-        //console.log("top 10 sample: " + samplevalues);
- 
-    //    // get only top 10 otu ids for the plot OTU and reversing it. 
-    //    var OTU = (sampleArr.otu_ids.slice(0, 10)).reverse();
-       
-    //    // get the otu id's to the desired form for the plot
-    //    var OTU_id = OTU.map(d => "OTU " + d)
- 
-    //    console.log("OTU IDS: " + OTU_id);
- 
- 
-    //    // get the top 10 labels for the plot and reversing it.
-    //    var labels = sampleArr.otu_labels.slice(0, 10).reverse();
-    //    console.log("labels: " + labels);
- 
-    //    // create trace variable for the plot
-    //    var trace = {
-    //        x: samplevalues,
-    //        y: OTU_id,
-    //        text: labels,
-    //        marker: {
-    //          color: 'Blue'},
-    //        type:"bar",
-    //        orientation: "h",
-    //    };
- 
-    //    // create data variable
-    //    var data = [trace];
- 
-    //    // create layout variable to set plots layout
- 
-    //    // create the bar plot
-    //    Plotly.newPlot("bar", data);
-
-
-    });
+            Plotly.newPlot("gauge", chart, layout2);
+   });
 
 }
 
