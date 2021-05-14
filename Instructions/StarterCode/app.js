@@ -155,17 +155,18 @@ function plotData(name)
             type: "indicator",
             
             mode: "gauge+number",
+            
             gauge: { axis: { range: [null, 9] },
                      steps: [
-                      {range: [0, 1], color: "white"},
-                      {range: [1, 2], color: "white"},
-                      {range: [2, 3], color: "white"},
-                      {range: [3, 4], color: "white"},
-                      {range: [4, 5], color: "white"},
-                      {range: [5, 6], color: "white"},
-                      {range: [6, 7], color: "white"},
-                      {range: [7, 8], color: "white"},
-                      {range: [8, 9], color: "white"}
+                      {range: [0, 1], color: "LightCyan"},
+                      {range: [1, 2], color:"LightCyan"},
+                      {range: [2, 3], color: "MediumTurquoise"},
+                      {range: [3, 4], color: "MediumTurquoise"},
+                      {range: [4, 5], color: "MediumTurquoise"},
+                      {range: [5, 6], color: "MediumTurquoise"},
+                      {range: [6, 7], color: "MediumTurquoise"},
+                      {range: [7, 8], color: "Turquoise"},
+                      {range: [8, 9], color: "Turquoise"}
                     ]}
                 
             }
