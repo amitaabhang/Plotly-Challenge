@@ -172,47 +172,13 @@ function plotData(name)
           ];
        
 
-        var  layout2 = {
-            margin: { t: 20, b: 40, l:100, r:100 },
-            'xaxis': {
-                'showticklabels': False,
-                'showgrid': False,
-                'zeroline': False,
-            },
-            'yaxis': {
-                'showticklabels': False,
-                'showgrid': False,
-                'zeroline': False,
-            },
-            'shapes': [
-                {
-                    'type': 'path',
-                    'path': 'M 0.235 0.5 L 0.24 0.65 L 0.245 0.5 Z',
-                    'fillcolor': 'rgba(44, 160, 101, 0.5)',
-                    'line': {
-                        'width': 0.5
-                    },
-                    'xref': 'paper',
-                    'yref': 'paper'
-                }
-            ],
-            'annotations': [
-                {
-                    'xref': 'paper',
-                    'yref': 'paper',
-                    'x': 0.23,
-                    'y': 0.45,
-                    'text': '50',
-                    'showarrow': False
-                }
-            ]
-        }
+
         var layout_chart = { 
              
               margin: { t: 20, b: 40, l:100, r:100 } 
             };
 
-            Plotly.newPlot("gauge", chart, layout2);
+            Plotly.newPlot("gauge", chart, layout_chart);
    });
 
 }
