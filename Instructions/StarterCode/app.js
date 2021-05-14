@@ -7,7 +7,7 @@ function init() {
     d3.json("samples.json").then((sampleData)=> {
        
         namesArr = sampleData.names
-        //console.log(namesArr)
+        console.log(namesArr)
 
         namesArr.forEach(function(name){
 
@@ -57,13 +57,10 @@ function showDemographicInfo(name)
 
 }
 
-
 function plotData(name)
 {
 
     console.log("In Plot function")
-
-    //var barPanel = d3.select("#bar");
 
     d3.json("samples.json").then((sampleData)=> {
 
@@ -79,7 +76,7 @@ function plotData(name)
              return (sample.id == parseInt(name))
         });
 
-        //console.log(`Sample Array: ${sampleInfo}`)
+        console.log(`Sample Array: ${sampleInfo}`)
     
         Object.entries(sampleInfo[0]).forEach(([key, value]) => {
          if(key == "sample_values")
@@ -102,9 +99,9 @@ function plotData(name)
         wfreq = wfreq.wfreq;
         console.log("Washing Freq: " + wfreq);
        
-         //console.log(sampleValues)
-         //console.log(otuIdValues)
-         //console.log(otuLabels)
+         console.log(sampleValues)
+         console.log(otuIdValues)
+         console.log(otuLabels)
 
         
          var trace1 = {
@@ -131,7 +128,8 @@ function plotData(name)
             marker: {
                 size: sampleValues,
                 color: otuIdValues
-            }
+            },
+            title: {text: `Belly Button Washing Frequency`},
           };
 
         var layout = {
@@ -145,7 +143,7 @@ function plotData(name)
 
         var wfreq = sampleData.metadata.filter(f => f.id.toString() === name)[0];
         wfreq = wfreq.wfreq;
-        console.log("Washing Freq: " + wfreq);
+       console.log("Washing Freq: " + wfreq);
 
         var chart = [
             {
@@ -172,8 +170,6 @@ function plotData(name)
             }
           ];
        
-
-
         var layout_chart = { 
              
               margin: { t: 20, b: 40, l:100, r:100 } 
@@ -183,7 +179,6 @@ function plotData(name)
    });
 
 }
-
 
 function optionChanged(name){
 
