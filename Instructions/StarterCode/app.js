@@ -134,33 +134,45 @@ function plotData(name)
             }
           };
 
-
-        //   var trace1 = {
-        //     x: samples.otu_ids,
-        //     y: samples.sample_values,
-        //     mode: "markers",
-        //     marker: {
-        //         size: samples.sample_values,
-        //         color: samples.otu_ids
-        //     },
-        //     text: samples.otu_labels
-  
-        // };
-  
-        // set the layout for the bubble plot
         var layout = {
             xaxis:{title: "OTU ID"}
          
         };
 
+        var data2 = [trace2];
+
+        Plotly.newPlot("bubble", data2, layout);
+
+        var chart = {
+          
+            domain: { x: [0, 1], y: [0, 1] },
+            value: wfreq,
+            type: "indicator",
+            
+            mode: "gauge+number",
+            gauge: { axis: { range: [null, 9] },
+                     steps: [
+                      {range: [0, 1], color: "white"},
+                      {range: [1, 2], color: "white"},
+                      {range: [2, 3], color: "white"},
+                      {range: [3, 4], color: "white"},
+                      {range: [4, 5], color: "white"},
+                      {range: [5, 6], color: "white"},
+                      {range: [6, 7], color: "white"},
+                      {range: [7, 8], color: "white"},
+                      {range: [8, 9], color: "white"}
+                    ]}
+                
+        };
+       
 
 
+        var layout_chart = { 
+             
+              margin: { t: 20, b: 40, l:100, r:100 } 
+            };
 
-         var data2 = [trace2];
-
-          Plotly.newPlot("bubble", data2, layout);
-
-
+            Plotly.newPlot("gauge", data_g, layout_g);
 
         //var samplevalues = sampleInfo.sample_values.slice(0, 10).reverse();
         //console.log("top 10 sample: " + samplevalues);
